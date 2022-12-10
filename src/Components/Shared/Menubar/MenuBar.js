@@ -1,16 +1,17 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 const MenuBar = () => {
     return (
         <div>
             <Navbar bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">OPTA CARE CLINIC</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Link className='navbar-brand' to="/home">OPTA CARE CLINIC</Link>
+                    <Nav className="ms-auto">
+                        <NavLink className='nav-link' to='/home'>Home</NavLink>
+                        <NavLink className='nav-link' to='#'>Pricing</NavLink>
+                        <NavLink className='nav-link ms-5' to='/login'>Login</NavLink>
                     </Nav>
                 </Container>
             </Navbar>
