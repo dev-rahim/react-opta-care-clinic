@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Eye Exams",
+    "image": "https://i.ibb.co/T2TjvyY/EyeExams.jpg",
+    "description": "An eye examination is a series of tests performed to assess vision and ability to focus on and discern objects. It also includes other tests and examinations pertaining to the eyes. Eye examinations are primarily performed by an optometrist, ophthalmologist, or an orthoptist."
+  },
+  {
+    "id": 2,
+    "title": "Retina Repair",
+    "image": "https://i.ibb.co/nQpBjJz/ratina-repare.jpg",
+    "description": "Retinal detachment repair is eye surgery to place a retina back into its normal position. The retina is the light-sensitive tissue in the back of the eye. Detachment means that it has pulled away from the layers of tissue around it."
+  },
+  {
+    "id": 3,
+    "title": "Dry Eye Surgery",
+    "image": "https://i.ibb.co/Zdj4ycs/dripping-eye-drops.jpg",
+    "description": "Dry eye is a common condition that is often temporary but may be long lasting for some people. Chronic dry eye often results from changes in hormone levels or underlying autoimmune or inflammatory conditions."
+  },
+  {
+    "id": 4,
+    "title": "Laser Eye Surgery",
+    "image": "https://i.ibb.co/RyDWvyw/Laser-Eye-Surgery.jpg",
+    "description": "Surgery to improve your eyesight is known as refractive surgery or vision correction. There are 2 different types: laser eye surgery and lens surgery.Both types of surgery can make you less dependent on glasses or contact lenses. Research shows that both are safe and effective."
+  },
+  {
+    "id": 5,
+    "title": "Optical Service",
+    "image": "https://i.ibb.co/LCGSyW7/Optical-Service.jpg",
+    "description": "Optical Services means the filling of optical prescriptions, dispensing of optical goods, the fitting of eyewear, all activities related to any of the foregoing, and the direction, supervision, and control of those who perform these tasks."
+  },
+  {
+    "id": 6,
+    "title": "Surgical Procedure",
+    "image": "https://i.ibb.co/Nj6LZMV/Surgical-Procedur.jpg",
+    "description": "Surgery to improve your eyesight is known as refractive surgery or vision correction. There are 2 different types: laser eye surgery and lens surgery.Both types of surgery can make you less dependent on glasses or contact lenses. Research shows that both are safe and effective."
+  }
+]
