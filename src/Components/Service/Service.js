@@ -10,11 +10,11 @@ const Service = (props) => {
                 <h2 className='d-flex justify-content-between'><span className='text-start'>{title}</span><span className='text-end'>{id}</span></h2>
                 <img className='img-fluid rounded' src={image} alt="" srcset="" />
                 <p className='text-start'>{description.slice(0, 100)}</p>
-                <Link className='text-start nav-link' to=''>
+                <Link to={`/service/${id}`} className='text-start nav-link'>
                     <p className='fs-4'>Read More <span >{'->'}</span></p>
                 </Link>
             </div>
-        </div>
+        </div >
     );
 };
 
