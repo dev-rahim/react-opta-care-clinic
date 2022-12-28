@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const MenuBar = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     return (
         <div>
             <Navbar bg="primary" variant="dark">
@@ -13,7 +13,10 @@ const MenuBar = () => {
                     <Nav className="ms-auto">
                         <NavLink className='nav-link' to='/home'>Home</NavLink>
                         <NavLink className='nav-link' to='#'>Pricing</NavLink>
-                        <NavLink className='nav-link ms-5' to='/login'>{user.email ? user.email : 'Login'}</NavLink>
+                        {
+                            user.email ? <p onClick={logOut} className='nav-link ms-5' to=''>Logout</p> : <NavLink className='nav-link ms-5' to='/login'>Login</NavLink>
+                        }
+
                     </Nav>
                 </Container>
             </Navbar>

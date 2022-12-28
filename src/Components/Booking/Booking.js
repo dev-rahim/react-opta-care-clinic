@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import MenuBar from '../Shared/Menubar/MenuBar';
 import './Booking.css'
 const Booking = () => {
     const { serviceId } = useParams()
@@ -10,13 +11,15 @@ const Booking = () => {
             .then(data => {
                 setServices(data.find(s => s.id === serviceId))
             })
-    }, [])
+    },)
     return (
-        <div className='booking-card mx-auto mt-5 rounded'>
-            <img className='img-fluid img-thumbnail' src={services.image} alt="" />
-            <h2>{services.title}</h2>
-            <p className='text-start'>{services.description}</p>
-        </div>
+        <>
+            <MenuBar />
+            <div className='booking-card mx-auto mt-5 rounded'>
+                <img className='img-fluid img-thumbnail' src={services.image} alt="" />
+                <h2>{services.title}</h2>
+                <p className='text-start'>{services.description}</p>
+            </div></>
     );
 };
 
