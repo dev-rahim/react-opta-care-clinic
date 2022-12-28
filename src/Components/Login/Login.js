@@ -1,35 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import useAuth from '../Hooks/useAuth';
 import MenuBar from '../Shared/Menubar/MenuBar';
 
 const Login = () => {
+    const [email, setEmail] = useState([])
+    const [password, setPassword] = useState([])
+    const [IsRegisterd, setIsRegisterd] = useState([])
+    const { createUserUsingEmail, user, signInWithEmailPass } = useAuth()
     const handleRegestration = (e) => {
         e.preventDefault();
+        createUserUsingEmail(email, password);
+    }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        signInWithEmailPass(email, password)
+        console.log(user.email);
+    }
+    const handleEmailChanged = (e) => {
+        setEmail(e.target.value);
+    }
+    const handlePasswordChanged = (e) => {
+        setPassword(e.target.value);
+    }
+    const isLogin = (e) => {
+        setIsRegisterd(e.target.checked);
     }
     return (
         <div>
             <MenuBar />
             <div className="w-50 mx-auto text-start">
-                <Form onSubmit={handleRegestration}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+                {
+                    user.email ? <h2 className='mt-5 text-center'>Already Login</h2> :
+                        <div><h2>{IsRegisterd ? 'Please Login' : 'Please Register'}</h2>
+                            <Form onSubmit={IsRegisterd ? handleLogin : handleRegestration}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control onBlur={handleEmailChanged} type="email" placeholder="Enter email" />
+                                    <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                    </Form.Text>
+                                </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <button className='btn btn-primary' type="">
-                        Submit
-                    </button>
-                </Form>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control onBlur={handlePasswordChanged} type="password" placeholder="Password" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                    <Form.Check onChange={isLogin} type="checkbox" label="Already Registered?" />
+                                </Form.Group>
+                                <button className='btn btn-primary' type="">
+                                    {IsRegisterd ? 'Login' : 'Register'}
+                                </button>
+                            </Form>
+                        </div>
+                }
+
             </div>
         </div>
     );

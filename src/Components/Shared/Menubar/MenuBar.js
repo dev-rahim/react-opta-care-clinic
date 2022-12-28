@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const MenuBar = () => {
+    const { user } = useAuth();
     return (
         <div>
             <Navbar bg="primary" variant="dark">
@@ -11,7 +13,7 @@ const MenuBar = () => {
                     <Nav className="ms-auto">
                         <NavLink className='nav-link' to='/home'>Home</NavLink>
                         <NavLink className='nav-link' to='#'>Pricing</NavLink>
-                        <NavLink className='nav-link ms-5' to='/login'>Login</NavLink>
+                        <NavLink className='nav-link ms-5' to='/login'>{user.email ? user.email : 'Login'}</NavLink>
                     </Nav>
                 </Container>
             </Navbar>
