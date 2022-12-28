@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import MenuBar from '../Shared/Menubar/MenuBar';
 
@@ -9,16 +9,26 @@ const Login = () => {
     const [password, setPassword] = useState([])
     const [IsRegisterd, setIsRegisterd] = useState([])
     const { logOut, signInUsingGoogle, createUserUsingEmail, user, signInWithEmailPass } = useAuth()
+
     const navigate = useNavigate()
+    const location = useLocation()
+    const redirect_uri = location.state?.from || '/home'
+
     const handleRegestration = (e) => {
         e.preventDefault();
         createUserUsingEmail(email, password);
+
+    }
+    const googleSignIN = () => {
+        signInUsingGoogle().then(result => {
+            navigate(redirect_uri)
+        })
     }
     const handleLogin = (e) => {
         e.preventDefault();
-        signInWithEmailPass(email, password)
-        console.log(user.email);
-        navigate('/home')
+        signInWithEmailPass(email, password).then(result => {
+            navigate(redirect_uri)
+        })
     }
     const handleEmailChanged = (e) => {
         setEmail(e.target.value);
@@ -67,7 +77,7 @@ const Login = () => {
                             </Form>
                             <br /><br />
                             <p className='text-center'>or</p><br />
-                            <button className='mx-auto text-center btn btn-danger px-5 py-2' onClick={signInUsingGoogle}>Google SignIn</button>
+                            <button className='mx-auto text-center btn btn-danger px-5 py-2' onClick={googleSignIN}>Google SignIn</button>
                         </div>
                 }
 

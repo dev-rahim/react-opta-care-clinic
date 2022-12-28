@@ -8,10 +8,8 @@ const useFirebase = () => {
     InitializeAuthentication()
     const auth = getAuth()
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleProvider)
+
     }
     const createUserUsingEmail = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -20,10 +18,8 @@ const useFirebase = () => {
             })
     }
     const signInWithEmailPass = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-            })
+        return signInWithEmailAndPassword(auth, email, password)
+
     }
     const logOut = () => {
         signOut(auth)

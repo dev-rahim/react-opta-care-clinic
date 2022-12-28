@@ -5,6 +5,7 @@ import AuthProvider from './Components/Context/AuthProvider';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/service/:serviceId' element={<Booking />} />
+            <Route element={<PrivateRoute />} >
+              <Route path='/service/:serviceId' element={<Booking />} />
+            </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>
