@@ -8,7 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState([])
     const [password, setPassword] = useState([])
     const [IsRegisterd, setIsRegisterd] = useState([])
-    const { logOut, signInUsingGoogle, createUserUsingEmail, user, signInWithEmailPass } = useAuth()
+    const { setIsLoading, logOut, signInUsingGoogle, createUserUsingEmail, user, signInWithEmailPass, } = useAuth()
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -22,6 +22,8 @@ const Login = () => {
     const googleSignIN = () => {
         signInUsingGoogle().then(result => {
             navigate(redirect_uri)
+        }).finally(() => {
+            setIsLoading(false)
         })
     }
     const handleLogin = (e) => {
